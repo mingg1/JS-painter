@@ -1,8 +1,8 @@
 @import "reset.css";
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 body {
-  background-image: url('https://images.unsplash.com/photo-1594145070100-c771df5152fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80');
+  background-image: url("https://images.unsplash.com/photo-1594145070100-c771df5152fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80");
   background-size: cover;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -12,14 +12,16 @@ body {
   padding: 30px 0 50px;
 }
 
-.title{
-  font-family: 'Pacifico', cursive;
+.title {
+  font-family: "Pacifico", cursive;
   font-size: 45px;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 5px rgb(211, 199, 199);
-    -webkit-text-stroke: 1.4px white;
-    color: #a529c4;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 5px rgb(211, 199, 199);
+  -webkit-text-stroke: 1.4px white;
+  color: #a529c4;
+  letter-spacing: 4px;
 }
+
 .canvas {
   width: 700px;
   height: 700px;
@@ -30,12 +32,11 @@ body {
 
 .controls {
   margin-top: 30px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.controls .controls_range{
+.controls .controls_range {
   margin-bottom: 30px;
 }
 .controls .controls_btns {
@@ -57,14 +58,16 @@ body {
   font-size: 15px;
 }
 
-.controls_btns button:active{
+.controls_btns button:active {
   transform: scale(0.98);
   font-weight: 500;
 }
+
 .controls .controls_colors {
   display: flex;
 }
-.controls_colors .controls_color {
+
+.controls_colors .controls_color, .color_picker {
   width: 50px;
   height: 50px;
   border-radius: 25px;
@@ -73,6 +76,16 @@ body {
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(50, 50, 93, 0.11);
 }
 
-.controls_colors .controls_color:not(:last-child){
-margin-right: 10px;
+.controls_colors .controls_color:not(:last-child) {
+  margin-right: 10px;
+}
+.color_picker{
+  outline: none;
+  -webkit-app
+}
+input[type=color]{
+  display: none;
+}
+span{
+  display:inline-block;
 }

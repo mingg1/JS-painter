@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("js-color");
 const range = document.getElementById("js-range");
 const mode = document.getElementById("js-mode");
-const saveBtn = document.getElementById('js-save');
+const saveBtn = document.getElementById("js-save");
 
 const INITIAL_COLOR = "black";
 const CANVAS_SIZE = 700;
@@ -12,8 +12,8 @@ const CANVAS_SIZE = 700;
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE;
 
-ctx.fillStyle = 'white';
- ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 ctx.strokeStyle = INITIAL_COLOR;
 ctx.lineWidth = 2.5;
 ctx.fillStyle = INITIAL_COLOR;
@@ -46,7 +46,7 @@ function onMouseDown(evt) {
 }
 
 function handleColorClick(evt) {
-  const color = event.target.style.backgroundColor;
+  const color = evt.target.style.backgroundColor;
   ctx.strokeStyle = color;
   ctx.fillStyle = color;
 }
@@ -57,8 +57,8 @@ function handleCanvasClick() {
   }
 }
 
-function handleCM(evt){
- evt.preventDefault();   
+function handleCM(evt) {
+  evt.preventDefault();
 }
 
 if (canvas) {
@@ -67,7 +67,7 @@ if (canvas) {
   canvas.addEventListener("mouseup", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);
   canvas.addEventListener("click", handleCanvasClick);
-  canvas.addEventListener("contextmenu",handleCM);
+  canvas.addEventListener("contextmenu", handleCM);
 }
 
 Array.from(colors).forEach((color) =>
@@ -75,7 +75,7 @@ Array.from(colors).forEach((color) =>
 );
 
 function handleRangeChange(evt) {
-  const size = event.target.value;
+  const size = evt.target.value;
   ctx.lineWidth = size;
 }
 
@@ -97,14 +97,14 @@ if (mode) {
   mode.addEventListener("click", handleModeChange);
 }
 
-function handleSaveBtn(evt){
-const image = canvas.toDataURL();
-const link = document.createElement('a');
-link.href = image;
-link.download = 'JS-painter[🎨]';
-link.click();
+function handleSaveBtn(evt) {
+  const image = canvas.toDataURL();
+  const link = document.createElement("a");
+  link.href = image;
+  link.download = "JS-painter";
+  link.click();
 }
 
-if(saveBtn){
-    saveBtn.addEventListener("click",handleSaveBtn);
+if (saveBtn) {
+  saveBtn.addEventListener("click", handleSaveBtn);
 }
