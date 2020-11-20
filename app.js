@@ -4,6 +4,8 @@ const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("js-color");
 const range = document.getElementById("js-range");
 const mode = document.getElementById("js-mode");
+const pickerContainer = document.querySelector(".picker_container");
+const colorPicker = document.querySelector(".color_picker");
 const saveBtn = document.getElementById("js-save");
 
 const INITIAL_COLOR = "black";
@@ -95,6 +97,23 @@ function handleModeChange() {
 
 if (mode) {
   mode.addEventListener("click", handleModeChange);
+}
+
+if (pickerContainer) {
+  pickerContainer.addEventListener("click", () => {
+    colorPicker && colorPicker.click();
+  });
+}
+
+if (colorPicker) {
+  colorPicker.addEventListener("change", pickColor);
+}
+
+function pickColor(e) {
+  const color = e.target.value;
+  pickerContainer.style.background = color;
+  ctx.strokeStyle = color;
+  ctx.fillStyle = color;
 }
 
 function handleSaveBtn(evt) {
