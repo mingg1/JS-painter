@@ -106,12 +106,16 @@ if (pickerContainer) {
 }
 
 if (colorPicker) {
+  colorPicker.addEventListener("input", previewColor);
   colorPicker.addEventListener("change", pickColor);
 }
-
-function pickColor(e) {
+function previewColor(e) {
   const color = e.target.value;
   pickerContainer.style.background = color;
+  return color;
+}
+function pickColor(e) {
+  const color = previewColor(e);
   ctx.strokeStyle = color;
   ctx.fillStyle = color;
 }
